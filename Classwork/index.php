@@ -27,13 +27,12 @@ echo $car2->nameAndModel();
 echo $car3->nameAndModel();
 
 class ship extends vehicle {
-    function __construct($name, $model, $makeYear, $color, $fuelType, private $type, private $mast) {
-        // not neccessary 
-        // parent::__construct($name, $model, $makeYear, $color, $fuelType);
+    function __construct(private $name, private $model, private $makeYear, private $color, private $fuelType, private $type, private $mast) {
+        parent::__construct($name, $model, $makeYear, $color, $fuelType);
     }
 
     public function numberOfMasts() {
-        return "Your Ship has {$this->mast} mast(s) <br>";
+        return "Your {$this->name} has {$this->mast} mast(s) <br>";
     }
 }
 
